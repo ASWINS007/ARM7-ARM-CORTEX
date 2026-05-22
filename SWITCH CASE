@@ -1,0 +1,39 @@
+#include <LPC214X.H>
+void delay();
+int main()
+{
+    int i;
+    PINSEL0 = 0x00000000;   
+    IO0DIR  = 0x000000FF;   
+    while(1)
+    {
+        for(i = 0; i <= 9; i++)
+        {
+            switch(i)
+            {
+                case 0: IO0PIN = 0xC0; break;
+                case 1: IO0PIN = 0xF9; break;
+                case 2: IO0PIN = 0xA4; break;
+                case 3: IO0PIN = 0xB0; break;
+                case 4: IO0PIN = 0x99; break;
+                case 5: IO0PIN = 0x92; break;
+                case 6: IO0PIN = 0x82; break;
+                case 7: IO0PIN = 0xF8; break;
+                case 8: IO0PIN = 0x80; break;
+                case 9: IO0PIN = 0x90; break;
+                default: IO0PIN = 0x00;
+            }
+
+            delay();
+        }
+    }
+}
+void delay()
+{
+    int i, j;
+
+    for(i = 0; i < 5000; i++)
+    {
+        for(j = 0; j < 1000; j++);
+    }
+}
